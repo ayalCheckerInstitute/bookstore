@@ -16,6 +16,10 @@ def get_all_books():
     return [{"book_id": book.book_id, "title": book.title} for book in Book.query.all()]
 
 
+@flask_app.route('/health')
+def health():
+    return "ok"
+
 @flask_app.shell_context_processor
 def make_shell_context():
     return {
